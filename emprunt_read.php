@@ -14,7 +14,7 @@ $conn = pdo_connect_mysql();
 <div class="content read">
 	<h2>Liste emprunts</h2>
 
-<a href="ajout_patient.php" class="create-contact">Créer un livre</a>
+<a href="ajout_livre.php" class="create-contact">Créer un livre</a>
 	<table>
         <thead>
             <tr>
