@@ -5,8 +5,8 @@ $conn = pdo_connect_mysql();
 
         //recuperer les noms dans la database
 
-        $reponse = $conn->query("SELECT * FROM emprunt LEFT JOIN adherent ON emprunt.IDAdherent = adherent.id LEFT JOIN livre ON emprunt.IDLivre = livre.id");
- 
+        $reponse = $conn->query("SELECT * FROM emprunt  LEFT JOIN adherent ON emprunt.IDAdherent = adherent.id LEFT JOIN livre ON emprunt.IDLivre = livre.id");
+        
 ?>
 
 <?php echo template_header('Read'); ?>
@@ -14,7 +14,8 @@ $conn = pdo_connect_mysql();
 <div class="content read">
 	<h2>Liste emprunts</h2>
 
-<a href="ajout_livre.php" class="create-contact">Créer un livre</a>
+    <a href="create_emprunt.php" class="create-contact">Faire un emprunt</a>
+
 	<table>
         <thead>
             <tr>

@@ -5,7 +5,7 @@ $conn = pdo_connect_mysql();
 
         //recuperer les noms dans la database
 
-        $reponse = $conn->query("SELECT * FROM livre LEFT JOIN rayon ON livre.IDRayon = rayon.id");
+        $reponse = $conn->query("SELECT livre.id, livre.titre, livre.auteur, livre.disponible, rayon.nom  FROM livre LEFT JOIN rayon ON livre.IDRayon = rayon.id ");
  
 ?>
 
@@ -37,8 +37,8 @@ $conn = pdo_connect_mysql();
                 <td><?php echo $rows["nom"]; ?></td>
                 
                 <td class="actions">
-                    <a href="update.php?id=<?php echo $rows["id"]; ?> " class="edit"><i class="fas fa-pen fa-xs"></i></a>
-                    <a href="delete.php?id=<?php echo $rows["id"]; ?> " class="trash"><i class="fas fa-trash fa-xs"></i></a>
+                    <a href="update_livre.php?id=<?php echo $rows["id"]; ?> " class="edit"><i class="fas fa-pen fa-xs"></i></a>
+                    <a href="delete_livre.php?id=<?php echo $rows["id"]; ?> " class="trash"><i class="fas fa-trash fa-xs"></i></a>
                 </td>
             </tr>
 <?php

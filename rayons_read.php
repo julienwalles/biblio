@@ -14,7 +14,7 @@ $conn = pdo_connect_mysql();
 <div class="content read">
 	<h2>Liste rayons</h2>
 
-<a href="ajout_patient.php" class="create-contact">Créer un rayon</a>
+<a href="create_rayon.php" class="create-contact">Créer un rayon</a>
 	<table>
         <thead>
             <tr>

@@ -13,4 +13,5 @@ pdo_connect_mysql();
 	<p>BIENVENUE SUR LE SITE DE LA BIBLIOTHEQUE  !</p>
 </div>
 
+
 <?php echo template_footer(); ?>
