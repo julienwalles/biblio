@@ -49,7 +49,6 @@ function template_header($title) {
               <a href="adh_read.php"><i class="fas fa-users"></i>Adhérents</a>
               <a href="emprunt_read.php"><i class="fas fa-check-circle"></i>Emprunts</a>
               <a href="rayons_read.php"><i class="fas fa-book"></i>Rayons</a>
-              <a href="search.php"><i class="far fa-eye"></i>Search</a>
         </div>
       </nav>
   EOT;
