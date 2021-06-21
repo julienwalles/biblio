@@ -3,9 +3,9 @@ include 'request.php';
 
 $conn = pdo_connect_mysql();
 
-        //recuperer les noms dans la database
+//recuperer les noms dans la database
 
-        $reponse = $conn->query("SELECT * FROM emprunt  LEFT JOIN adherent ON emprunt.IDAdherent = adherent.id LEFT JOIN livre ON emprunt.IDLivre = livre.id");
+$reponse = $conn->query("SELECT emprunt.id, emprunt.IDLivre, emprunt.IDAdherent, DateEmprunt, DRetourMax, DateRetour , livre.titre, adherent.nom, adherent.prenom FROM emprunt   LEFT JOIN adherent ON emprunt.IDAdherent = adherent.id  LEFT JOIN livre ON emprunt.IDLivre = livre.id ORDER BY nom");
         
 ?>
 
@@ -14,7 +14,7 @@ $conn = pdo_connect_mysql();
 <div class="content read">
 	<h2>Liste emprunts</h2>
 
-    <a href="create_emprunt.php" class="create-contact">Faire un emprunt</a>
+    <a href="create_emprunt.php" class="create-contact">Emprunter un livre</a>
 
 	<table>
         <thead>
@@ -42,7 +42,7 @@ $conn = pdo_connect_mysql();
                 
                 <td class="actions">
                     <a href="update.php?id=<?php echo $rows["id"]; ?> " class="edit"><i class="fas fa-pen fa-xs"></i></a>
-                    <a href="delete.php?id=<?php echo $rows["id"]; ?> " class="trash"><i class="fas fa-trash fa-xs"></i></a>
+                    <a href="retour_emprunt.php?id=<?php echo $rows["id"]; ?> " class="trash"><i class="fas fa-trash fa-xs"></i></a>
                 </td>
             </tr>
 <?php
@@ -51,5 +51,7 @@ $conn = pdo_connect_mysql();
         </tbody>
     </table>
 </div>
+
+
 
 <?php echo template_footer(); ?>

@@ -6,7 +6,7 @@ $conn = pdo_connect_mysql();
         //recuperer les noms dans la database
 
         $reponse = $conn->query("SELECT * FROM rayon");
- 
+
 ?>
 
 <?php echo template_header('Read'); ?>

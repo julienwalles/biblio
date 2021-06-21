@@ -43,7 +43,7 @@ function template_header($title) {
     <body>
       <nav class="navtop">
         <div>
-          <h1>SITE BIBLIO</h1>
+          <h1>BIBLIOTHEQUE NC</h1>
               <a href="index.php"><i class="fas fa-home"></i>Home</a>
               <a href="livres_read.php"><i class="fas fa-book"></i>Livres</a>
               <a href="adh_read.php"><i class="fas fa-users"></i>Adhérents</a>

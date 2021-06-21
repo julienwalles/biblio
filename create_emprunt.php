@@ -10,29 +10,48 @@ $stmt_get->execute();
 $rows = $stmt_get->fetchAll(PDO::FETCH_ASSOC);
 
 //request GET adherent
-$request2 = "SELECT id, NbLivreEmprunte, CONCAT(nom,' ',prenom) AS nom FROM adherent ";
+$request2 = "SELECT id, NbLivreEmprunte, CONCAT(nom,' ',prenom) AS nom FROM adherent WHERE NbLivreEmprunte < 5 ";
 $stmt_get2 = $conn->prepare($request2);
 $stmt_get2->execute();
 $rows2 = $stmt_get2->fetchAll(PDO::FETCH_ASSOC);
 
-//request POST
 
+//request POST to create an emprunt
 if(isset($_POST['create'])) {
 	
 
 $IDLivre = $_POST['IDLivre'];
 $IDAdherent = $_POST['IDAdherent'];
 $DateEmprunt = $_POST['DateEmprunt'];
+$DRetourMax = $_POST['DRetourMax'];
+$DateRetour = $_POST['DateRetour'];
 
 
-$query = "INSERT INTO emprunt (IDLivre, IDAdherent, DateEmprunt) VALUES(:IDLivre, :IDAdherent, :DateEmprunt)";
+$query = "INSERT INTO emprunt (IDLivre, IDAdherent, DateEmprunt, DRetourMax, DateRetour) VALUES(:IDLivre, :IDAdherent, :DateEmprunt, :DRetourMax, :DateRetour)";
 $stmt = $conn->prepare($query); 
-$stmt->execute(array(":IDLivre"=>$IDLivre, ":IDAdherent"=>$IDAdherent, ":DateEmprunt"=>$DateEmprunt));
+$stmt->execute(array(":IDLivre"=>$IDLivre, ":IDAdherent"=>$IDAdherent, ":DateEmprunt"=>$DateEmprunt, ":DRetourMax"=>$DRetourMax, ":DateRetour"=>$DateRetour));
 
 
 if($stmt) {
-	echo '<script type="text/javascript">alert("book created");
-			window.location.href = "livres_read.php";
+
+//request tu update NbLivreEmprunte;
+$id = $_POST['IDAdherent'];
+$NbLivreEmprunte = $_POST['NbLivreEmprunte'];
+
+$query = "UPDATE adherent SET NbLivreEmprunte= NbLivreEmprunte + 1 WHERE id=:id";
+$stmt = $conn->prepare($query);
+$stmt_exec = $stmt->execute(array("id"=>$id));
+
+//request tu update NbLivreEmprunte;
+$id = $_POST['IDLivre'];
+$disponible = $_POST['disponible'];
+
+$query = "UPDATE livre SET disponible= 'non' WHERE id=:id";
+$stmt = $conn->prepare($query);
+$stmt_exec = $stmt->execute(array("id"=>$id));
+
+	echo '<script type="text/javascript">alert("emprunt created");
+			window.location.href = "emprunt_read.php";
 		  </script>';
 
 	exit();
@@ -42,6 +61,7 @@ if($stmt) {
 	}
 
 }
+
 ?>
 
 
@@ -60,7 +80,7 @@ if($stmt) {
                 <?php
             foreach ($rows as $row) {
 ?>
-                    < <option value="<?php echo $row["IDLivre"]; ?>"><?php echo $row["titre"]; ?></option>
+                    < <option value="<?php echo $row["id"]; ?>"><?php echo $row["titre"]; ?></option>
                     <?php
         }
 ?>
@@ -73,7 +93,7 @@ if($stmt) {
             <?php
         foreach ($rows2 as $row2) {
 ?>
-                    < <option value="<?php echo $row2["IDAdherent"]; ?>"><?php echo $row2["nom"]; ?></option>
+                    < <option value="<?php echo $row2["id"]; ?>"><?php echo $row2["nom"]; ?></option>
                     <?php
         }
 ?>
@@ -86,6 +106,24 @@ if($stmt) {
             Date d'emprunt:
                 <input type="date" id="meeting-time"
                  name="DateEmprunt" value=""
+                min="2021-01-07T00:00" max="2030-06-14T00:00">
+            </div>
+            <div class="col">              
+            </div>
+            <br>
+            <div class="col">
+            Date Retour max:
+                <input type="date" id="meeting-time"
+                 name="DRetourMax" value=""
+                min="2021-01-07T00:00" max="2030-06-14T00:00">
+            </div>
+            <div class="col">              
+            </div>
+            <br>
+            <div class="col">
+            Date Retour:
+                <input type="date" id="meeting-time"
+                 name="DateRetour" value=""
                 min="2021-01-07T00:00" max="2030-06-14T00:00">
             </div>
             <div class="col">              
