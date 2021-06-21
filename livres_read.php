@@ -14,7 +14,11 @@ $conn = pdo_connect_mysql();
 <div class="content read">
 	<h2>Liste livres</h2>
 
+<<<<<<< Updated upstream
 <a href="ajout_livre.php" class="create-contact">Créer un livre</a>
+=======
+<a href="ajout_patien.php" class="create-contact">Créer un livre</a>
+>>>>>>> Stashed changes
 	<table>
         <thead>
             <tr>
