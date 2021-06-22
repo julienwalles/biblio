@@ -1,3 +1,32 @@
+<?php
+require 'request.php';
+$conn = pdo_connect_mysql();
+
+if(isset($_POST['create'])) {
+
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
+$password = $_POST['password'];
+$login = $_POST['login'];
+
+//aumente la valeur de coût
+$options = ['cost' => 12];
+//hachage du password
+$hashed_password = password_hash($_POST["password"], PASSWORD_DEFAULT, $options);
+
+
+$query = "INSERT INTO admin (firstname, lastname, password, login) VALUES(:firstname, :lastname, :password, :login)";
+$stmt = $conn->prepare($query); 
+$stmt->execute(array(":firstname"=>$firstname,":lastname"=>$lastname, ":password"=>$hashed_password, ":login"=>$login));
+
+if($stmt) {
+echo '<script type="text/javascript">alert("Nouvel utilisateur ajouté");
+          </script>';
+}
+}
+?>
+
+
 <div class="container">
 <form method="post" action="#"class="row g-3 m-auto">
 	<div class="col-3">
