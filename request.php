@@ -5,6 +5,7 @@
   $username = "root";
   $password = "";
   
+  session_start ();
   // $connected = NULL;
   
   try {
@@ -37,8 +38,7 @@ function template_header($title) {
       <title>$title</title>
       <link href="style.css" rel="stylesheet" type="text/css">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" 
-      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     </head>
     <body>
       <nav class="navtop">
@@ -49,6 +49,7 @@ function template_header($title) {
               <a href="adh_read.php"><i class="fas fa-users"></i>Adhérents</a>
               <a href="emprunt_read.php"><i class="fas fa-check-circle"></i>Emprunts</a>
               <a href="rayons_read.php"><i class="fas fa-book"></i>Rayons</a>
+              <a href="./logout.php">Se déconnecter</a>
         </div>
       </nav>
   EOT;

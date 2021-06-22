@@ -28,6 +28,7 @@ if($stmt) {
 			window.location.href = "livres_read.php";
 		  </script>';
 
+          
 	exit();
 }
 	else {

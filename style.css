@@ -191,7 +191,7 @@
   .delete .yesno {
     display: flex;
   }
-  .delete .yesno a {
+  /* .delete .yesno a {
     display: inline-block;
     text-decoration: none;
     background-color: #38b673;
@@ -202,5 +202,9 @@
   }
   .delete .yesno a:hover {
     background-color: #32a367;
-  }
+  } */
   
+  .container {
+    width: 100%;
+    margin: auto;
+  }
