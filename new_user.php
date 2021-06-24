@@ -2,33 +2,29 @@
 require 'request.php';
 $conn = pdo_connect_mysql();
 
-// if(isset($_POST['create']) && $_POST['password'] === $_POST['confirmPassword']) {
+if(isset($_POST['create']) && $_POST['password'] === $_POST['confirmPassword']) {
 
-// $firstname = $_POST['firstname'];
-// $lastname = $_POST['lastname'];
-// $password = $_POST['password'];
-// $confirmPassword = $_POST['confirmPassword'];
-// $login = $_POST['login'];
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
+$password = $_POST['password'];
+$confirmPassword = $_POST['confirmPassword'];
+$login = $_POST['login'];
 
-// //aumente la valeur de coût
-// $options = ['cost' => 12];
-// //hachage du password
-// $hashed_password = password_hash($_POST["password"], PASSWORD_DEFAULT, $options);
+//aumente la valeur de coût
+$options = ['cost' => 12];
+//hachage du password
+$hashed_password = password_hash($_POST["password"], PASSWORD_DEFAULT, $options);
 
 
-// $query = "INSERT INTO admin (firstname, lastname, password, login) VALUES(:firstname, :lastname, :password, :login)";
-// $stmt = $conn->prepare($query); 
-// $stmt->execute(array(":firstname"=>$firstname,":lastname"=>$lastname, ":password"=>$hashed_password, ":login"=>$login));
+$query = "INSERT INTO admin (firstname, lastname, password, login) VALUES(:firstname, :lastname, :password, :login)";
+$stmt = $conn->prepare($query); 
+$stmt->execute(array(":firstname"=>$firstname,":lastname"=>$lastname, ":password"=>$hashed_password, ":login"=>$login));
 
-// if($stmt) {
-// echo '<script type="text/javascript">alert("Nouvel utilisateur ajouté");
-//           </script>';
-// 		  header('location: index.php');
-// }	
-// }
-
-if(isset($_POST['create']) {
-	
+if($stmt) {
+echo '<script type="text/javascript">alert("Nouvel utilisateur ajouté");
+          </script>';
+		  header('location: index.php');
+}	
 }
 
 ?>
