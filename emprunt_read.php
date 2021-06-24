@@ -14,12 +14,9 @@ $reponse = $conn->query("SELECT emprunt.id, emprunt.IDLivre, emprunt.IDAdherent,
 <div class="content read">
 	<h2>Liste emprunts</h2>
 
-<<<<<<< Updated upstream
     <a href="create_emprunt.php" class="create-contact">Emprunter un livre</a>
+    <!-- <a href="ajout_patient.php" class="create-contact">Créer un emprunt</a> -->
 
-=======
-<a href="ajout_patient.php" class="create-contact">Créer un emprunt</a>
->>>>>>> Stashed changes
 	<table>
         <thead>
             <tr>

@@ -7,7 +7,7 @@ $conn = pdo_connect_mysql();
 
 <div class="content">
 	<h1>Accueil</h1>
-	<p>BIENVENUE SUR LE SITE DE LA BIBLIOTHEQUE !</p>
+	<p>BIENVENUE <strong><?php echo $_SESSION['login'] ?></strong> SUR LE SITE DE LA BIBLIOTHEQUE !</p>
 </div>
 
 <?php echo template_footer(); ?>
