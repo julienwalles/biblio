@@ -14,7 +14,7 @@ $conn = pdo_connect_mysql();
 <div class="content read">
 	<h2>Liste adhérents</h2>
 
-<a href="ajout_patient.php" class="create-contact">Créer un adhérent</a>
+<a href="create_adh.php" class="create-contact">Créer un adhérent</a>
 	<table>
         <thead>
             <tr>
