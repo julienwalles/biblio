@@ -74,65 +74,68 @@ $stmt_exec = $stmt->execute(array("id"=>$id));
 <form method="post" action="#">
     <div class="container">
         <div class="row">
-            <div class="col">
-            Titre du livre:
+            <div class="col-6">
+                <label for="exampleFormControlInput1" class="form-label">Titre livre</label>
                 <select name="IDLivre">
                 <?php
-            foreach ($rows as $row) {
-?>
+                foreach ($rows as $row) {   
+                    ?>
                     < <option value="<?php echo $row["id"]; ?>"><?php echo $row["titre"]; ?></option>
                     <?php
-        }
-?>
-            </select>
+                        }
+                ?>
+                </select>
             </div>
-            <br>
-            <div class="col">
-            Nom adherent:
-                <select name="IDAdherent">
-            <?php
-        foreach ($rows2 as $row2) {
-?>
-                    < <option value="<?php echo $row2["id"]; ?>"><?php echo $row2["nom"]; ?></option>
-                    <?php
-        }
-?>
 
+            <br>
+
+            <div class="col-6">
+                <label for="exampleFormControlInput1" class="form-label">Nom adherent</label>
+                <select name="IDAdherent">
+                <?php
+                foreach ($rows2 as $row2) {
+                ?>
+                    <option value="<?php echo $row2["id"]; ?>"><?php echo $row2["nom"]; ?></option>
+                <?php
+                    }
+                ?>
+                </select>
             </div>
         </div>
+
         <br>
+
         <div class="row">
-            <div class="col">
-            Date d'emprunt:
+            <div class="col-4">
+                <label for="exampleFormControlInput1" class="form-label">Date d'emprunt</label>
                 <input type="date" id="meeting-time"
                  name="DateEmprunt" value=""
                 min="2021-01-07T00:00" max="2030-06-14T00:00">
             </div>
-            <div class="col">              
-            </div>
+
             <br>
-            <div class="col">
-            Date Retour max:
+
+            <div class="col-4">
+                <label for="exampleFormControlInput1" class="form-label">Date de retour max</label>
                 <input type="date" id="meeting-time"
                  name="DRetourMax" value=""
                 min="2021-01-07T00:00" max="2030-06-14T00:00">
             </div>
-            <div class="col">              
-            </div>
+        
             <br>
-            <div class="col">
-            Date Retour:
+
+            <div class="col-4">
+                <label for="exampleFormControlInput1" class="form-label">Date de retour</label>
                 <input type="date" id="meeting-time"
                  name="DateRetour" value=""
                 min="2021-01-07T00:00" max="2030-06-14T00:00">
             </div>
-            <div class="col">              
-            </div>
-            <br>
             
-                <input type="submit" name="create" value="Create" class="buttom">
-                
+            <br>
+        
         </div>
+
+        <input type="submit" name="create" value="Create" class="btn btn-secondary">
     </div>
 </form>
 

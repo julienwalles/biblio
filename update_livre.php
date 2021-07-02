@@ -24,6 +24,8 @@ $disponible = $_POST['disponible'];
 $IDRayon = $_POST['IDRayon'];
 
 
+if(isset($_POST['update'])) {
+
 // update  request POST
 $query = "UPDATE livre SET titre=:titre, auteur=:auteur, disponible=:disponible, IDRayon=:IDRayon WHERE id=:id";
 $stmt = $conn->prepare($query);
@@ -39,6 +41,7 @@ if($stmt_exec) {
 	else {
 		echo '<script>alert("Modification effectuée")</script';
 	}
+}
 }
 
 ?>
