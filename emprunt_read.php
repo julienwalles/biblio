@@ -39,7 +39,7 @@ $reponse = $conn->query("SELECT emprunt.id, emprunt.IDLivre, emprunt.IDAdherent,
                 <td><?php echo $rows["nom"]; ?></td>
                 <td><?php echo $rows["prenom"]; ?></td>
                 <td><?php echo $rows["DateEmprunt"]; ?></td>
-                <td><?php echo $rows["DateRetour"]; ?></td>
+                <td><?php echo $rows["DRetourMax"]; ?></td>
                 
                 <td class="actions">
                     <a href="update.php?id=<?php echo $rows["id"]; ?> " class="edit"><i class="fas fa-pen fa-xs"></i></a>

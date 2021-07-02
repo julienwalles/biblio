@@ -41,9 +41,11 @@ if($stmt) {
     <div class="container">
         <div class="row">
             <div class="col">
+                <label for="content" class="form-label">Nom</label>
                 <input type="text" class="form-control" name = nom placeholder="Nom" required value="">
             </div>
             <div class="col">
+            <label for="content" class="form-label">Reference</label>
                 <input type="text" class="form-control"  name = reference placeholder="Reference" required value="">
             </div>
         </div>

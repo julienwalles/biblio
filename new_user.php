@@ -37,14 +37,14 @@ echo '<script type="text/javascript">alert("Nouvel utilisateur ajouté");
 	<form method="post" action="#"class="row g-3 m-auto">
 		<div class="col-2">
 			<label for="exampleFormControlInput1" class="form-label">firstname</label>
-			<input type="text" class="form-control" name="firstname" id="exampleFormControlInput1" pattern="[a-z]{4,8}" placeholder="firstname">
+			<input type="text" class="form-control" name="firstname" id="exampleFormControlInput1" pattern="[a-z]" placeholder="firstname">
 		</div>
 
 		<br>
 
 		<div class="col-2">
 			<label for="exampleFormControlInput2" class="form-label">lastname</label>
-			<input type="text" class="form-control" name="lastname" id="exampleFormControlInput2" pattern="[A-Z]{4,8}" placeholder="lastname">
+			<input type="text" class="form-control" name="lastname" id="exampleFormControlInput2" pattern="[A-Z]" placeholder="lastname">
 		</div>
 
 		<br>

@@ -49,19 +49,22 @@ if($stmt) {
     <div class="container">
         <div class="row">
             <div class="col">
+            <label for="exampleFormControlInput1" class="form-label">Titre</label>
                 <input type="text" class="form-control" name = titre placeholder="Titre" required value="">
             </div>
             <div class="col">
+                <label for="exampleFormControlInput1" class="form-label">Auteur</label>
                 <input type="text" class="form-control"  name = auteur placeholder="Auteur" required value="">
             </div>
         </div>
         <br>
         <div class="row">
             <div class="col">
+            <label for="exampleFormControlInput1" class="form-label">Disponible</label>
                 <input type="text" class="form-control"  name = disponible placeholder="Disponible" required value="oui">
             </div>
             <div class="col">
-                IDRayon:
+                <label for="exampleFormControlInput1" class="form-label">IDRayon</label>
                 <select name="IDRayon">
                     <?php
         foreach ($rows as $row) {
@@ -74,9 +77,11 @@ if($stmt) {
                 <br>
                 
             </div>
+
             <br>
-            <div class="row">
-                <input type="submit" name="create" value="Create" class="buttom">
+            
+            <div class="row-2">
+                <input type="submit" name="create" value="Create" class="btn btn-secondary">
                 </div>
         </div>
     </div>

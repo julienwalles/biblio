@@ -26,10 +26,10 @@ $DateEmprunt = $_POST['DateEmprunt'];
 $DRetourMax = $_POST['DRetourMax'];
 $DateRetour = $_POST['DateRetour'];
 
-
 $query = "INSERT INTO emprunt (IDLivre, IDAdherent, DateEmprunt, DRetourMax, DateRetour) VALUES(:IDLivre, :IDAdherent, :DateEmprunt, :DRetourMax, :DateRetour)";
 $stmt = $conn->prepare($query); 
 $stmt->execute(array(":IDLivre"=>$IDLivre, ":IDAdherent"=>$IDAdherent, ":DateEmprunt"=>$DateEmprunt, ":DRetourMax"=>$DRetourMax, ":DateRetour"=>$DateRetour));
+
 
 
 if($stmt) {
