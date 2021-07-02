@@ -5,7 +5,11 @@ $conn = pdo_connect_mysql();
 
 //recuperer les noms dans la database
 
-$reponse = $conn->query("SELECT emprunt.id, emprunt.IDLivre, emprunt.IDAdherent, DateEmprunt, DRetourMax, DateRetour , livre.titre, adherent.nom, adherent.prenom FROM emprunt   LEFT JOIN adherent ON emprunt.IDAdherent = adherent.id  LEFT JOIN livre ON emprunt.IDLivre = livre.id ORDER BY nom");
+$reponse = $conn->query("SELECT emprunt.id, emprunt.IDLivre, emprunt.IDAdherent, DateEmprunt, DRetourMax, DateRetour , livre.titre, adherent.nom, adherent.prenom
+                         FROM emprunt   
+                         LEFT JOIN adherent ON emprunt.IDAdherent = adherent.id  
+                         LEFT JOIN livre ON emprunt.IDLivre = livre.id 
+                         ORDER BY nom");
         
 ?>
 
@@ -42,7 +46,7 @@ $reponse = $conn->query("SELECT emprunt.id, emprunt.IDLivre, emprunt.IDAdherent,
                 <td><?php echo $rows["DRetourMax"]; ?></td>
                 
                 <td class="actions">
-                    <a href="update.php?id=<?php echo $rows["id"]; ?> " class="edit"><i class="fas fa-pen fa-xs"></i></a>
+                    <a href="update_emprunt.php?id=<?php echo $rows["id"]; ?> " class="edit"><i class="fas fa-pen fa-xs"></i></a>
                     <a href="retour_emprunt.php?id=<?php echo $rows["id"]; ?> " class="trash"><i class="fas fa-trash fa-xs"></i></a>
                 </td>
             </tr>

@@ -15,6 +15,8 @@ $request2 = "SELECT CONCAT(rayon.nom,' ',rayon.id) AS rayon FROM rayon";
 $stmt_get2 = $conn->prepare($request2);
 $stmt_get2->execute();
 $rows2 = $stmt_get2->fetchAll(PDO::FETCH_ASSOC);
+
+
 if(isset($_POST['update'])) {
 
 $id = $_GET['id'];
@@ -22,9 +24,6 @@ $titre = $_POST['titre'];
 $auteur = $_POST['auteur'];
 $disponible = $_POST['disponible'];
 $IDRayon = $_POST['IDRayon'];
-
-
-if(isset($_POST['update'])) {
 
 // update  request POST
 $query = "UPDATE livre SET titre=:titre, auteur=:auteur, disponible=:disponible, IDRayon=:IDRayon WHERE id=:id";
@@ -42,7 +41,7 @@ if($stmt_exec) {
 		echo '<script>alert("Modification effectuée")</script';
 	}
 }
-}
+
 
 ?>
 <?php echo template_header('Create'); ?>
@@ -94,7 +93,8 @@ if($stmt_exec) {
             </div>
             <br>
             <div class="row">
-                <input type="submit" name="update" value="Update" class="buttom">
+                <input type="submit" name="update" value="Update" class="btn btn-primary">
+                <a class="btn btn-primary" href="livres_read.php" role="button">Retour</a>
                 </div>
         </div>
     </div>
